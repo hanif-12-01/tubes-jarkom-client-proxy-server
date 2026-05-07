@@ -30,7 +30,7 @@ def handle_http_client(connection, address):
             response = f"HTTP/1.1 200 OK\nContent-Length: {len(content)}\n\n{content}"
         else:
             status_code = "404 Not Found"
-            response = "HTTP/1.1 404 Not Found\n\nFile Gak Ada!"
+            response = "HTTP/1.1 404 Not Found\n\nYeee ketipu lu wkwkw, gak ada isinya :P"
             
     except Exception as e:
         # Poin: Handler 500 Internal Server Error jika proses gagal
