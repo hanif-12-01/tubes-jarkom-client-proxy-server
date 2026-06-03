@@ -2,8 +2,8 @@ import socket
 import time
 
 CLIENT_IP = '10.130.66.40'
-PROXY_ADDR = ('10.130.65.100', 8080)
-SERVER_UDP_ADDR = ('10.53.117.94', 9000)
+PROXY_ADDR = ('10.130.64.199', 8080)
+SERVER_UDP_ADDR = ('10.130.65.241', 9000)
 
 def fetch_web(filename):
     print(f"\n--- Meminta File: /{filename} ---")

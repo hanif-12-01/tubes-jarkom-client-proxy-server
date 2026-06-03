@@ -5,7 +5,9 @@ import mimetypes
 from datetime import datetime
 
 # Menggunakan IP terpisah untuk simulasi topologi jaringan
-SERVER_IP = '10.53.117.94'  # IP Server khusus untuk simulasi
+SERVER_IP = '10.130.65.241'  # IP Server khusus untuk simulasi
+ALLOWED_PROXY_IP = '10.130.64.199' # WAJIB GANTI: Isi dengan IP Laptop Proxy
+
 HTTP_PORT = 8000
 UDP_PORT = 9000
 
@@ -80,4 +82,12 @@ http_sock.listen(5)
 print(f"HTTP Web Server berjalan di {SERVER_IP}:{HTTP_PORT}...")
 while True:
     client_conn, client_addr = http_sock.accept()
+    
+    # === FIREWALL SOCKET ===
+    if client_addr[0] != ALLOWED_PROXY_IP:
+        print(f"[FIREWALL BLOCKED] Klien mencoba bypass! IP {client_addr[0]} diblokir.")
+        client_conn.close()
+        continue
+    # =======================
+    
     threading.Thread(target=handle_http_client, args=(client_conn, client_addr)).start()
