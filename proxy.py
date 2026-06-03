@@ -3,9 +3,9 @@ import threading
 import os
 import time
 
-PROXY_IP = '127.0.0.11'
+PROXY_IP = '10.130.65.100'
 PROXY_PORT = 8080
-WEB_SERVER_ADDR = ('127.0.0.10', 8000)
+WEB_SERVER_ADDR = ('10.53.117.94', 8000)
 CACHE_DIR = "cache/"
 
 if not os.path.exists(CACHE_DIR): os.makedirs(CACHE_DIR)
