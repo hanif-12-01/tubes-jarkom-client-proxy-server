@@ -7,7 +7,6 @@ from datetime import datetime
 
 # Menggunakan IP terpisah untuk simulasi topologi jaringan
 SERVER_IP = '10.130.49.153'
-ALLOWED_PROXY_IP = '10.130.49.136'
 HTTP_PORT = 8000
 UDP_PORT = 9000
 
@@ -92,12 +91,4 @@ http_sock.listen(5)
 print(f"HTTP Web Server berjalan di {SERVER_IP}:{HTTP_PORT}...")
 while True:
     client_conn, client_addr = http_sock.accept()
-    
-    # === FIREWALL SOCKET ===
-    if client_addr[0] != ALLOWED_PROXY_IP:
-        print(f"[FIREWALL BLOCKED] Klien mencoba bypass! IP {client_addr[0]} diblokir.")
-        client_conn.close()
-        continue
-    # =======================
-    
     threading.Thread(target=handle_http_client, args=(client_conn, client_addr)).start()

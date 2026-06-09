@@ -5,7 +5,7 @@ from datetime import datetime
 
 CLIENT_IP = '10.130.49.184'
 PROXY_ADDR = ('10.130.49.136', 8080)
-SERVER_UDP_ADDR = ('10.130.49.153', 9000)
+PROXY_UDP_ADDR = ('10.130.49.136', 9090)  # UDP lewat proxy port 9090, bukan langsung ke server
 
 def fetch_web(filename):
     print(f"\n--- Meminta File: /{filename} ---")
