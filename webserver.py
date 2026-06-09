@@ -5,8 +5,8 @@ import mimetypes
 from datetime import datetime
 
 # Menggunakan IP terpisah untuk Web Server dan Proxy agar bisa diuji firewall socket
-SERVER_IP = '10.130.65.241'  # IP Laptop Web Server (WAJIB GANTI)
-ALLOWED_PROXY_IP = '10.130.64.199' # WAJIB GANTI: Isi dengan IP Laptop Proxy
+SERVER_IP = '10.130.49.153'  # IP Laptop Web Server (WAJIB GANTI)
+ALLOWED_PROXY_IP = '10.130.49.136' # WAJIB GANTI: Isi dengan IP Laptop Proxy
 
 
 HTTP_PORT = 8000
