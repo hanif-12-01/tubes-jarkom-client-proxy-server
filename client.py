@@ -1,6 +1,7 @@
 import socket
 import time
 import csv
+import argparse
 from datetime import datetime
 
 CLIENT_IP = '10.130.49.184'
@@ -95,7 +96,7 @@ def run_qos_test():
 
         print(f"Hasil QoS tersimpan ke: {csv_filename}")
 
-if __name__ == "__main__":
+def run_tcp_mode():
     print("=== TAHAP 1: Akses File Normal ===")
     fetch_web("index.html")
     fetch_web("osi.html")
@@ -111,5 +112,26 @@ if __name__ == "__main__":
     print("\n=== TAHAP 4: Pengujian Asset Multimedia ===")
     fetch_web("assets/video.mp4")
 
-    time.sleep(1)
-    run_qos_test()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Client Jaringan Komputer')
+    parser.add_argument(
+        '--mode',
+        choices=['tcp', 'udp'],
+        help='Mode operasi: tcp (HTTP request) atau udp (QoS testing). Default: jalankan keduanya.'
+    )
+    args = parser.parse_args()
+
+    if args.mode == 'tcp':
+        print("=== MODE TCP: Pengujian HTTP ===")
+        run_tcp_mode()
+
+    elif args.mode == 'udp':
+        print("=== MODE UDP: QoS Testing ===")
+        run_qos_test()
+
+    else:
+        # Tanpa argumen: jalankan semua tahap secara berurutan
+        print("=== MODE LENGKAP: TCP + UDP ===")
+        run_tcp_mode()
+        time.sleep(1)
+        run_qos_test()
