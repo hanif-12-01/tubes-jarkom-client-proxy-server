@@ -3,9 +3,9 @@ import threading
 import os
 import time
 
-PROXY_IP = '10.130.64.199'
+PROXY_IP = '10.130.64.199' # WAJIB GANTI: Isi dengan IP Laptop Proxy
 PROXY_PORT = 8080
-WEB_SERVER_ADDR = ('10.130.65.241', 8000)
+WEB_SERVER_ADDR = ('10.130.65.241', 8000) # WAJIB GANTI: Isi dengan IP dan Port Laptop Web Server (sesuai webserver.py)
 CACHE_DIR = "cache/"
 
 if not os.path.exists(CACHE_DIR): os.makedirs(CACHE_DIR)
