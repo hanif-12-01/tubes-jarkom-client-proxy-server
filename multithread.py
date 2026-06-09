@@ -5,7 +5,6 @@ import time
 def jalankan_client(id_client):
     print(f"[START] Client {id_client} mulai mengirim request...")
     # Mengeksekusi file client.py menggunakan terminal secara background
-    # Ubah "python" menjadi "python3" atau "py" jika terjadi error
     try:
         subprocess.run(["python", "client.py"], check=True, capture_output=True, text=True)
         print(f"[DONE] Client {id_client} berhasil menerima balasan.")
@@ -15,7 +14,7 @@ def jalankan_client(id_client):
 if __name__ == "__main__":
     print("=== MEMULAI PENGUJIAN MULTI-CLIENT KONKUREN ===")
     
-    # Sesuai modul, minimal 5 client konkuren. Kamu bisa ganti angkanya jadi 10, 20, dsb.
+    # minimal 5 client konkuren. Kamu bisa ganti angkanya jadi 10, 20, dsb.
     JUMLAH_CLIENT = 5 
     threads = []
 
